@@ -192,25 +192,25 @@ def gen_user(choice):
             pass
     return username
 
-@fifthon.on(events.NewMessage(outgoing=True, pattern=r"\.تشيكر"))
+@fifthon.on(events.NewMessage(outgoing=True, pattern=r"\.Checker"))
 async def _(event):
     if ispay2[0] == "yes":
         await event.edit(tele_checker)
         
-@fifthon.on(events.NewMessage(outgoing=True, pattern=r"\.اليوزرات المبندة"))
+@fifthon.on(events.NewMessage(outgoing=True, pattern=r"\.users banned"))
 async def _(event):
     if ispay2[0] == "yes":
         await fifthon.send_file(event.chat_id, 'banned.txt')
 
 
-@fifthon.on(events.NewMessage(outgoing=True, pattern=r"\.الانواع"))
+@fifthon.on(events.NewMessage(outgoing=True, pattern=r"\.types"))
 async def _(event):
     if ispay2[0] == "yes":
         await event.edit(tele_checker2)
 # صيد عدد نوع قناة
 
 
-@fifthon.on(events.NewMessage(outgoing=True, pattern=r"\.صيد (.*)"))
+@fifthon.on(events.NewMessage(outgoing=True, pattern=r"\.hunt (.*)"))
 async def _(event):
     if ispay2[0] == "yes":
         isclaim.clear()
@@ -219,17 +219,17 @@ async def _(event):
         ch = str(msg[2])
         choice = str(msg[1])
         trys = 0
-        await event.edit(f"حسناً سأفحص نوع `{choice}` من اليوزرات على `{ch}` , بعدد `{msg[0]}` من المحاولات !")
+        await event.edit("Well I'll check Type `{choice}` From the user on `{ch}` , by number `{msg[0]}` of attempts !")
 
-        @fifthon.on(events.NewMessage(outgoing=True, pattern=r"\.حالة الصيد"))
+        @fifthon.on(events.NewMessage(outgoing=True, pattern=r"\.hunting"))
         async def _(event):
             if ispay2[0] == "yes":
                 if "on" in isclaim:
-                    await event.edit(f"الصيد وصل لـ({trys}) من المحاولات")
+                    await event.edit("The catch has arrived ({trys}) of attempts")
                 elif "off" in isclaim:
-                    await event.edit("لايوجد صيد شغال !")
+                    await event.edit("There is no active hunting !")
                 else:
-                    await event.edit("خطأ")
+                    await event.edit("error")
             else:
                 pass
         for i in range(int(msg[0])):
@@ -248,8 +248,12 @@ async def _(event):
                 try:
                     await fifthon(functions.channels.UpdateUsernameRequest(
                         channel=ch, username=username))
-                    await event.client.send_message(event.chat_id, f'''
-    تنح صدتلك يوزر (@{username}) !
+                    await event.client.send_message(event.chat_id, '''
+⌯ 𝘛𝘖 𝘐𝘕𝘚𝘛𝘈𝘓𝘓 𝘛𝘏𝘌 𝘚𝘖𝘜𝘙𝘊𝘌 ↣ ( @N1111V )
+-- -- -- -- -- -- -- -- -- -- -- -- --
+- ⎱UserName: ↣ (@{username}❳!
+- ⎱Hunting History ↣ {Hussenk}
+- ⎱Hunting Hour ↣ {Levii}
     ''')
                     break
                 except telethon.errors.rpcerrorlist.UsernameInvalidError:
@@ -305,19 +309,23 @@ async def _(event):
                     try:
                         await fifthon(functions.channels.UpdateUsernameRequest(
                             channel=ch, username=username))
-                        await event.client.send_message(event.chat_id, f'''
-    تنح صدتلك يوزر (@{username}) !
+                        await event.client.send_message(event.chat_id, '''
+⌯ 𝘛𝘖 𝘐𝘕𝘚𝘛𝘈𝘓𝘓 𝘛𝘏𝘌 𝘚𝘖𝘜𝘙𝘊𝘌 ↣ ( @N1111V )
+-- -- -- -- -- -- -- -- -- -- -- -- --
+- ⎱UserName: ↣ (@{username}❳!
+- ⎱Hunting History ↣ {Hussenk}
+- ⎱Hunting Hour ↣ {Levii}
     ''')
                         break
                     except telethon.errors.rpcerrorlist.UsernameInvalidError:
-                        await event.client.send_message(event.chat_id, f"مبند `{username}` ❌❌")
+                        await event.client.send_message(event.chat_id, "banned `{username}` ❌❌")
                         break
                     except Exception as eee:
 
-                        await fifthon.send_message(event.chat_id, f'''خطأ مع {username}
-    الخطأ :
-    {str(eee)}''')
-                        if "A wait of" in str(eee):
+                        await fifthon.send_message(event.chat_id, '''** error with {username}
+    error  :
+    {str(eee)} **''')
+                        if "** A wait of **" in str(eee):
                             break
                 else:
                     pass
@@ -327,24 +335,28 @@ async def _(event):
             trys = ""
             isclaim.clear()
             isclaim.append("off")
-            await fifthon.send_message(event.chat_id, "تم الانتهاء من التثبيت التلقائي")
-        if msg[0] == "يدوي":  # تثبيت يدوي يوزر قناة
-            await event.edit(f"حسناً سأحاول تثبيت `{username}` على `{ch}` !")
+            await fifthon.send_message(event.chat_id, "Automatic installation completed")
+        if msg[0] == "manual":  # تثبيت يدوي يوزر قناة
+            await event.edit("Ok I will try to install `{username}` on `{ch}` !")
             msg = ("".join(event.text.split(maxsplit=1)[1:])).split(" ", 1)
             username = str(msg[0])
             ch = str(msg[1])
             try:
                 await fifthon(functions.channels.UpdateUsernameRequest(
                     channel=ch, username=username))
-                await event.client.send_message(event.chat_id, f'''
-    تنح صدتلك يوزر (@{username}) !
+                await event.client.send_message(event.chat_id, '''
+⌯ 𝘛𝘖 𝘐𝘕𝘚𝘛𝘈𝘓𝘓 𝘛𝘏𝘌 𝘚𝘖𝘜𝘙𝘊𝘌 ↣ ( @N1111V )
+-- -- -- -- -- -- -- -- -- -- -- -- --
+- ⎱UserName: ↣ (@{username}❳!
+- ⎱Hunting History ↣ {Hussenk}
+- ⎱Hunting Hour ↣ {Levii}
     ''')
             except telethon.errors.rpcerrorlist.UsernameInvalidError:
-                await event.client.send_message(event.chat_id, f"مبند `{username}` ❌❌")
+                await event.client.send_message(event.chat_id, f"banned `{username}` ❌❌")
             except Exception as eee:
-                await fifthon.send_message(event.chat_id, f'''خطأ مع {username}
-    الخطأ :
-    {str(eee)}''')
+                await fifthon.send_message(event.chat_id, '''** errer with {username}
+    error :
+    {str(eee)} **''')
 Threads=[] 
 for t in range(100):
     x = threading.Thread(target=_)
