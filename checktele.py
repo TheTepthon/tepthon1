@@ -178,7 +178,7 @@ def gen_user(choice):
             pass
     return username
 
-@fifthon.on(events.NewMessage(outgoing=True, pattern=r"\.Checker"))
+@fifthon.on(events.NewMessage(outgoing=True, pattern=r"\.checker"))
 async def _(event):
     if ispay2[0] == "yes":
         await event.edit(tele_checker)
