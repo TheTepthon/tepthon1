@@ -285,7 +285,7 @@ async def _(event):
             msg = ("".join(event.text.split(maxsplit=2)[2:])).split(" ", 2)
             username = str(msg[2])
             ch = str(msg[1])
-            await event.edit(f"حسناً سأحاول تثبيت `{username}` على `{ch}` , بعدد `{msg[0]}` من المحاولات !")
+            await event.edit(f"** Ok I will try to pin `{username}` on `{ch}` , by number `{msg[0]}` of attempts! **")
 
             @fifthon.on(events.NewMessage(outgoing=True, pattern=r"\.auto installation status"))
             async def _(event):
