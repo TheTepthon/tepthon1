@@ -252,8 +252,6 @@ async def _(event):
 ⌯ 𝘛𝘖 𝘐𝘕𝘚𝘛𝘈𝘓𝘓 𝘛𝘏𝘌 𝘚𝘖𝘜𝘙𝘊𝘌 ↣ ( @N1111V )
 -- -- -- -- -- -- -- -- -- -- -- -- --
 - ⎱UserName: ↣ (@{username}❳!
-- ⎱Hunting History ↣ {Hussenk}
-- ⎱Hunting Hour ↣ {Levii}
     ''')
                     break
                 except telethon.errors.rpcerrorlist.UsernameInvalidError:
@@ -313,8 +311,6 @@ async def _(event):
 ⌯ 𝘛𝘖 𝘐𝘕𝘚𝘛𝘈𝘓𝘓 𝘛𝘏𝘌 𝘚𝘖𝘜𝘙𝘊𝘌 ↣ ( @N1111V )
 -- -- -- -- -- -- -- -- -- -- -- -- --
 - ⎱UserName: ↣ (@{username}❳!
-- ⎱Hunting History ↣ {Hussenk}
-- ⎱Hunting Hour ↣ {Levii}
     ''')
                         break
                     except telethon.errors.rpcerrorlist.UsernameInvalidError:
@@ -347,9 +343,7 @@ async def _(event):
                 await event.client.send_message(event.chat_id, '''
 ⌯ 𝘛𝘖 𝘐𝘕𝘚𝘛𝘈𝘓𝘓 𝘛𝘏𝘌 𝘚𝘖𝘜𝘙𝘊𝘌 ↣ ( @N1111V )
 -- -- -- -- -- -- -- -- -- -- -- -- --
-- ⎱UserName: ↣ (@{username}❳!
-- ⎱Hunting History ↣ {Hussenk}
-- ⎱Hunting Hour ↣ {Levii}
+- ⎱UserName: ↣ (@{username}❳
     ''')
             except telethon.errors.rpcerrorlist.UsernameInvalidError:
                 await event.client.send_message(event.chat_id, f"banned `{username}` ❌❌")
