@@ -93,63 +93,28 @@ async def spam_function(event, sandy, cat, sleeptimem, sleeptimet, DelaySpam=Fal
             pass
 
 
-@fifthon.on(events.NewMessage(outgoing=True, pattern=r"\.الاوامر"))
-async def _(event):
-    await event.edit(commands)
 
-@fifthon.on(events.NewMessage(outgoing=True, pattern=r"\.فحص"))
+@fifthon.on(events.NewMessage(outgoing=True, pattern=r"\.alive"))
 async def _(event):
     start = datetime.datetime.now()
-    await event.edit("جارٍ...")
+    await event.edit("waiting...")
     end = datetime.datetime.now()
     ms = (end - start).microseconds / 1000
     await event.edit(f'''
-**☆ Welcome to Source fifthon
-☆ Version : 1.3
+**☆ Welcome to Source TEPTHON
+☆ Version : 1.5
 ☆ Ping : `{ms}`
 ☆ Date : `{m9zpi}`
 ☆ ID : `{event.sender_id}`
-☆ Source fifthon : @FIFTHON**
+☆ Source TEPTHON : @TEPTHON**
 ''')
 
 
-@fifthon.on(events.NewMessage(outgoing=True, pattern=r"\.م1"))
-async def _(event):
-    start = datetime.datetime.now()
-    await event.edit(sec1)
-
-
-@fifthon.on(events.NewMessage(outgoing=True, pattern=r"\.م2"))
-async def _(event):
-    start = datetime.datetime.now()
-    await event.edit(sec2)
-
-
-@fifthon.on(events.NewMessage(outgoing=True, pattern=r"\.م3"))
-async def _(event):
-    start = datetime.datetime.now()
-    await event.edit(sec3)
-
-
-@fifthon.on(events.NewMessage(outgoing=True, pattern=r"\.م4"))
-async def _(event):
-    start = datetime.datetime.now()
-    await event.edit(sec4)
-
-    
-ownerhson_id = 5307018300
-@fifthon.on(events.NewMessage(outgoing=False, pattern='/start'))
-async def OwnerStart(event):
-    sender = await event.get_sender()
-    if sender.id == ownerhson_id :
-        order = await event.reply('اهلا مطوري انس @B_8_1')
-
-
-@fifthon.on(events.NewMessage(outgoing=True, pattern=r"\.اعادة تشغيل"))
+@fifthon.on(events.NewMessage(outgoing=True, pattern=r"\.restart"))
 async def update(event):
-    await event.edit("• جارِ اعادة تشغيل السورس ..\n• انتضر 1-2 دقيقة  .")
+    await event.edit("** • i will rest the source ..\n• wait 1-2 minute.  **")
     await fifthon.disconnect()
-    await fifthon.send_message("me", "`اكتملت اعادة تشغيل السورس !`")
+    await fifthon.send_message("me", "`the restart is finsh !`")
 
 
 print("- fifthon Userbot Running ..")
