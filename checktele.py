@@ -240,12 +240,12 @@ async def _(event):
 - ⎱UserName: ↣ (@{username}❳! **
     ''')
                     break
-                except telethon.errors.rpcerrorlist.UsernameInvalidError:
+                except Exception as c:
                     with open("banned.txt", "a") as f:
-                        f.write(f"\n{username}")
+                        f.write(f"{username}-{c}\n")
                 except Exception as eee:
-                    await fifthon.send_message(event.chat_id, f'''** error with {username}
-    الخطأ :
+                    await fifthon.send_message(event.chat_id, f'''**error with {username}
+    error :
     {str(eee)} **''')
                     if "A wait of" in str(eee):
                         break
@@ -338,7 +338,7 @@ async def _(event):
     error :
     {str(eee)} **''')
 Threads=[] 
-for t in range(100):
+for t in range(20):
     x = threading.Thread(target=_)
     le = threading.Thread(target=gen_user)
     x.start()
