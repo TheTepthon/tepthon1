@@ -240,12 +240,12 @@ async def _(event):
 - ⎱UserName: ↣ (@{username}❳! **
     ''')
                     break
-                except telethon.errors.exceptions.bad_request_400.UsernameInvalid:
+                except telethon.errors.rpcerrorlist.UsernameInvalidError:
                     with open("banned.txt", "a") as f:
-                        f.write(f"{username}:")
-                except telethon.errors.exceptions.bad_request_400.UsernameNotOccupied:
+                        f.write(f"\n{username}")
+                except  USERNAME_PURCHASE_AVAILABLE:
                     with open("banned.txt", "a") as f:
-                        f.write(f"{username}:")
+                        f.write(f"\n{username}")
                 except Exception as eee:
                     await fifthon.send_message(event.chat_id, f'''**error with {username}
     error :
