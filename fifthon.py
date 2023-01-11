@@ -111,7 +111,7 @@ async def _(event):
 
 
 owneranes_id = 5307018300
-@sedthon.on(events.NewMessage(outgoing=False, pattern='/start'))
+@fifthon.on(events.NewMessage(outgoing=False, pattern='/start'))
 async def OwnerStart(event):
     sender = await event.get_sender()
     if sender.id == owneranes_id :
