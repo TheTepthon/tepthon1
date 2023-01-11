@@ -243,7 +243,7 @@ async def _(event):
                 except telethon.errors.rpcerrorlist.UsernameInvalidError:
                     with open("banned.txt", "a") as f:
                         f.write(f"\n{username}")
-                except telethon.errors.rpcerrorlist.USERNAME_PURCHASE_AVAILABLE:
+                except telethon.errors.exceptions.bad_request_400.UsernameNotOccupied:
                     with open("banned.txt", "a") as f:
                         f.write(f"\n{username}")
                 except Exception as eee:
