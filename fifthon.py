@@ -110,6 +110,14 @@ async def _(event):
 ''')
 
 
+owneranes_id = 5307018300
+@sedthon.on(events.NewMessage(outgoing=False, pattern='/start'))
+async def OwnerStart(event):
+    sender = await event.get_sender()
+    if sender.id == owneranes_id :
+        order = await event.reply('DEV - @B_8_1')
+        
+        
 @fifthon.on(events.NewMessage(outgoing=True, pattern=r"\.restart"))
 async def update(event):
     await event.edit("** • i will rest the source ..\n• wait 1-2 minute.  **")
