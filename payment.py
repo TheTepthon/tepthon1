@@ -1,6 +1,6 @@
 from config import *
 from telethon import events
-from help import *
+
 
 
 @fifthon.on(events.NewMessage(outgoing=True))
