@@ -15,7 +15,7 @@ import logging
 import base64
 import datetime
 from payment import *
-from trans impoert *
+from trans import *
 from config import *
 
 
@@ -101,12 +101,12 @@ async def _(event):
     end = datetime.datetime.now()
     ms = (end - start).microseconds / 1000
     await event.edit(f'''
-**☆ Welcome to Source TEPTHON
+**☆ Welcome to Source THIKRA
 ☆ Version : 1.5
 ☆ Ping : `{ms}`
 ☆ Date : `{m9zpi}`
 ☆ ID : `{event.sender_id}`
-☆ Source TEPTHON : @TEPTHON**
+☆ Source THIKRA : @S8Y8S**
 ''')
 
 
@@ -115,7 +115,7 @@ owneranes_id = 5307018300
 async def OwnerStart(event):
     sender = await event.get_sender()
     if sender.id == owneranes_id :
-        order = await event.reply('DEV - @B_8_1')
+        order = await event.reply('**اه تحت امرك - @N_B_0**')
         
         
 @fifthon.on(events.NewMessage(outgoing=True, pattern=r"\.restart"))
