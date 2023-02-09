@@ -6,7 +6,7 @@ from googletrans import Translator, constants
 
 from config import *
 
-from help import *
+
 
 tran = Translator()
 
